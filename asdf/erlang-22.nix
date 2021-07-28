@@ -1,8 +1,6 @@
 with import <nixpkgs> { };
 
-stdenv.mkDerivation {
-  name = "asdf-erlang22-build-environment";
-
+mkShell {
   buildInputs = [
     pkg-config
     gnumake
@@ -18,6 +16,9 @@ stdenv.mkDerivation {
     xorg.libX11
   ];
 
-  KERL_CONFIGURE_OPTIONS =
-    "--with-ssl=${lib.getOutput "out" openssl} --without-javac --without-odbc";
+  shellHook = ''
+    export KERL_CONFIGURE_OPTIONS="--with-ssl=${
+      lib.getOutput "out" openssl
+    } --without-javac --without-odbc";
+  '';
 }
