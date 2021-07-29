@@ -18,6 +18,8 @@ mkShell rec {
 
   shellHook = ''
     export SIXTYFPS_STYLE=native
-    alias patch-bin='patchelf --set-rpath "${lib.makeLibraryPath buildInputs}"'
+    alias patchelf='patchelf --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" --set-rpath "${
+      lib.makeLibraryPath buildInputs
+    }"'
   '';
 }
