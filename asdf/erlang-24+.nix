@@ -25,5 +25,6 @@ mkShell {
     export KERL_CONFIGURE_OPTIONS="--with-ssl=${
       lib.getOutput "out" openssl
     } --with-ssl-incl=${lib.getDev openssl} --without-javac --without-odbc";
+    export KERL_BUILD_DOCS=yes;
   '';
 }
