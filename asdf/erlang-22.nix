@@ -12,8 +12,8 @@ mkShell {
     libxml2
     libGL
     libGLU
-    wxGTK30
-    xorg.libX11
+    wxwidgets_3_2
+    libx11
   ];
 
   shellHook = ''

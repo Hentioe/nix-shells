@@ -13,8 +13,8 @@ mkShell {
     libxml2
     libGL
     libGLU
-    (wxGTK32.override { withWebKit = true; })
-    xorg.libX11
+    (wxwidgets_3_2.override { withWebKit = true; })
+    libx11
   ];
 
   shellHook = ''
